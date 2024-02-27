@@ -2,30 +2,43 @@
 ENE212-0263/2020*/
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int array[10];
-    int omittedNumber = 6; // Number to be omitted
+    int omittedNumber = 6;
+    int reservedIndex = 4;
 
-    // Assigning numbers in ascending order with one number omitted
     int i, j;
-    for (i = 0, j = 1; i < 10; i++)
-    {
-        if (i == 5) // Omitting number at index 5 (middle)
+    for (i = 0, j = 1; i < 9; i++) {
+        if (i == reservedIndex) {
+            array[i] = 0;
             continue;
+        }
         array[i] = j++;
     }
 
-    // Reserving a location for the omitted number
-    int reservedIndex = 5;
+    printf("Array before inserting the omitted number:\n");
+    for (i = 0; i < 9; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
 
-    // Inserting the omitted number
     array[reservedIndex] = omittedNumber;
 
-    // Printing the array
-    printf("Array with omitted number inserted:\n");
-    for (i = 0; i < 10; i++)
-    {
+    printf("\nArray after inserting the omitted number:\n");
+    for (i = 0; i < 9; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    array[reservedIndex] = 0;
+
+    int middleIndex = 4;
+    int insertedNumber = 6;
+
+    array[middleIndex] = insertedNumber;
+
+    printf("\nArray after inserting the number at the middle:\n");
+    for (i = 0; i < 9; i++) {
         printf("%d ", array[i]);
     }
     printf("\n");
